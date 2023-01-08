@@ -28,7 +28,7 @@ func GetBookById(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("error while parsing")
 
 	}
-	bookDetails, _ := models.GetBookById(ID)
+	bookDetails, _ := models.GetBookById(id)
 	res, _ := json.Marshal(bookDetails)
 	w.Header().Set("Content-Type", "pkglication/json")
 	w.WriteHeader(http.StatusOK)
@@ -53,7 +53,7 @@ func DeleteBook(w http.ResponseWriter, r * http.Request){
      fmt.Println("error while parsing")
 
 	}
-	book:=models.DeleteBook(ID)
+	book:=models.DeleteBook(id)
 	res ,_ :=json.Marshal(book)
 	w.Header().Set("Content-Type", "pkglication/json")
 	w.WriteHeader(http.StatusOK)
@@ -71,7 +71,7 @@ func DeleteBook(w http.ResponseWriter, r * http.Request){
 	if err != nil {
 		fmt.Println("error while parsing")
 	}
-	bookDetails, db:=models.GetBookById(ID)
+	bookDetails, db:=models.GetBookById(id)
 	if updateBook.Name != ""{
 		bookDetails.Name = updateBook.Name
 	}
